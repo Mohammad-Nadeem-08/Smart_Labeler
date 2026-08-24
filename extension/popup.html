@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Labeler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+      <div class="brand">
+
+        <div class="logo">
+          <span>✦</span>
+        </div>
+
+        <div class="brand-text">
+          <h1>Smart Labeler</h1>
+          <p>AI-powered inbox intelligence</p>
+        </div>
+
+      </div>
+
+      <button
+        id="settingsBtn"
+        class="icon-btn"
+        title="Settings"
+      >
+        ⚙️
+      </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+      <div class="hero-glow"></div>
+
+      <div class="hero-icon">
+        ✨
+      </div>
+
+      <h2>
+        Organize your inbox<br>
+        in seconds.
+      </h2>
+
+      <p>
+        Let AI classify your emails, create smart labels,
+        and highlight what actually matters.
+      </p>
+
+      <div class="feature-tags">
+
+        <span>🤖 AI Analysis</span>
+        <span>🏷 Smart Labels</span>
+        <span>✨ Highlights</span>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ACTIONS ================= -->
+
+    <section class="actions">
+
+      <!-- Analyze Current Email -->
+
+      <button
+        id="analyzeBtn"
+        class="primary-btn"
+      >
+
+        <span class="btn-icon">🔍</span>
+
+        <span class="btn-content">
+          <strong>Analyze Current Email</strong>
+          <small>Classify and highlight instantly</small>
+        </span>
+
+        <span class="btn-arrow">→</span>
+
+      </button>
+
+
+      <!-- Analyze Recent Emails -->
+
+      <button
+        id="inboxBtn"
+        class="secondary-btn"
+      >
+
+        <span class="btn-icon">📥</span>
+
+        <span class="btn-content">
+          <strong>Analyze Recent Emails</strong>
+          <small>Organize multiple emails at once</small>
+        </span>
+
+        <span class="btn-arrow">→</span>
+
+      </button>
+
+    </section>
+
+
+    <!-- ================= SETTINGS ================= -->
+
+    <div
+      id="settingsPanel"
+      class="settings-panel hidden"
+    >
+
+      <div class="settings-header">
+
+        <div>
+
+          <h3>⚙️ Smart Settings</h3>
+
+          <p>
+            Customize how Smart Labeler works.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= EMAIL LIMIT ================= -->
+
+      <div class="setting-group">
+
+        <label for="emailLimit">
+          Emails to analyze
+        </label>
+
+        <select id="emailLimit">
+
+          <option value="1">
+            1 email
+          </option>
+
+          <option value="3">
+            3 emails
+          </option>
+
+          <option value="5">
+            5 emails
+          </option>
+
+          <option value="10">
+            10 emails
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- ================= CONFIDENCE ================= -->
+
+      <div class="setting-group">
+
+        <div class="setting-row">
+
+          <label for="confidence">
+            Minimum confidence
+          </label>
+
+          <span
+            id="confidenceValue"
+            class="confidence-value"
+          >
+            50%
+          </span>
+
+        </div>
+
+        <input
+          type="range"
+          id="confidence"
+          min="0"
+          max="100"
+          value="50"
+        >
+
+      </div>
+
+
+      <!-- ================= AUTO CREATE LABEL ================= -->
+
+      <label class="toggle-setting">
+
+        <div>
+
+          <strong>
+            Auto-create labels
+          </strong>
+
+          <span>
+            Create new labels when needed
+          </span>
+
+        </div>
+
+        <input
+          type="checkbox"
+          id="autoCreate"
+          checked
+        >
+
+        <span class="toggle-slider"></span>
+
+      </label>
+
+
+      <!-- ================= AI KEYWORD HIGHLIGHT ================= -->
+
+      <label class="toggle-setting">
+
+        <div>
+
+          <strong>
+            Highlight AI keywords
+          </strong>
+
+          <span>
+            Highlight important information
+          </span>
+
+        </div>
+
+        <input
+          type="checkbox"
+          id="highlightEnabled"
+          checked
+        >
+
+        <span class="toggle-slider"></span>
+
+      </label>
+
+
+      <!-- ================= CUSTOM KEYWORDS ================= -->
+
+      <div class="setting-group custom-keywords-group">
+
+        <div class="setting-row">
+
+          <label for="customKeywords">
+            ✨ Custom highlight keywords
+          </label>
+
+        </div>
+
+        <textarea
+          id="customKeywords"
+          placeholder="Example: urgent, assignment, exam, interview"
+          rows="4"
+        ></textarea>
+
+        <small class="setting-help">
+          Separate keywords using commas. These keywords
+          will also be highlighted when analyzing an email.
+        </small>
+
+      </div>
+
+
+      <!-- ================= THEME ================= -->
+
+      <div class="setting-group">
+
+        <label for="themeSelect">
+          🎨 Appearance
+        </label>
+
+        <select id="themeSelect">
+
+          <option value="system">
+            💻 System default
+          </option>
+
+          <option value="light">
+            ☀️ Light mode
+          </option>
+
+          <option value="dark">
+            🌙 Dark mode
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- ================= SAVE ================= -->
+
+      <button
+        id="saveSettingsBtn"
+        class="save-btn"
+      >
+        💾 Save Settings
+      </button>
+
+    </div>
+
+
+    <!-- ================= STATUS ================= -->
+
+    <div id="status"></div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+      <span class="status-dot"></span>
+
+      <span>AI powered</span>
+
+      <span class="footer-divider">
+        •
+      </span>
+
+      <span>Gmail connected</span>
+
+    </footer>
+
+  </div>
+
+
+  <script src="popup.js"></script>
+
+</body>
+</html>
